@@ -12,7 +12,7 @@ import com.imedicina.scheduler.model.Appointment;
 import com.imedicina.scheduler.service.AppointmentService;
 
 @RestController
-@RequestMapping(path = "/")
+@RequestMapping(path = "/api/appointments")
 public class AppointmentController {
     
     @Autowired

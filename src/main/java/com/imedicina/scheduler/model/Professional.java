@@ -8,14 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "professional")
-public class Professional extends User {
+public class Professional {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -43,13 +42,11 @@ public class Professional extends User {
     }
 
     public Professional(String crm, String password) {
-        super(crm, password);
         this.crm = crm;
         this.password = password;
     }
 
     public Professional(Long id, String crm, String password, String rating, ProfessionalStatus status) {
-        super(crm, password);
         this.id = id;
         this.crm = crm;
         this.password = password;

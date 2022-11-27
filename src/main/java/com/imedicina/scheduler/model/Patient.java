@@ -6,14 +6,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "patient")
-public class Patient extends User {
+public class Patient {
 
     @Id
     private Long id;
@@ -35,13 +33,11 @@ public class Patient extends User {
     }
 
     public Patient(String username, String password) {
-        super(username, password);
         this.username = username;
         this.password = password;
     }
 
     public Patient(Long id, String username, String password, Integer totalAppointments) {
-        super(username, password);
         this.id = id;
         this.username = username;
         this.password = password;
