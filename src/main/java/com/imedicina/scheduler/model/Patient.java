@@ -6,9 +6,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "patient")
 public class Patient {
@@ -27,21 +33,4 @@ public class Patient {
 
     @Transient
     private Boolean onlineStatus = false;
-
-    public Patient() {
-        super();
-    }
-
-    public Patient(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    public Patient(Long id, String username, String password, Integer totalAppointments) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.totalAppointments = totalAppointments;
-    }
-    
 }

@@ -2,12 +2,19 @@ package com.imedicina.scheduler.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,16 +34,19 @@ public class Appointment {
     @Column
     private Long id;
 
-    @Column(name = "id_Patient")
+    @Column(name = "patient_id")
     private Long idPatient;
 
-    @Column(name = "id_Professional")
-    private Long idProfessional;
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinColumn(columnDefinition = "professional_id")
+    private Professional professional;
 
-    @Column(name = "horario_inicio")
+    @Column(name = "begining")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date begining;
 
-    @Column(name = "horario_fim")
-    private Date end;
+    @Column(name = "ending")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date ending;
     
 }

@@ -27,7 +27,7 @@ public class ProfessionalService {
         professionalRepository.delete(Professional);
     }
 
-    public Optional<Professional> findById(Long id) {
-        return professionalRepository.findById(id);
+    public Professional findById(Long id) {
+        return professionalRepository.findById(id).orElse(new Professional());
     }
 }

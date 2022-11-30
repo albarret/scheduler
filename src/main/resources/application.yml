@@ -3,7 +3,7 @@ server:
 
 spring:
     datasource:
-        url: jdbc:h2:~/imed
+        url: jdbc:h2:~/imed;DB_CLOSE_ON_EXIT=FALSE
         driverClassName: org.h2.Driver
     jpa:
         database-platform: org.hibernate.dialect.H2Dialect
